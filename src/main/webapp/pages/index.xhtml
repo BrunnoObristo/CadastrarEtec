@@ -42,7 +42,8 @@
 				<p:inputText id="codigo" value="#{cadastroMB.edit.codigo}" />
 
 				<h:outputText value="CEP: " style="margin-right: 5px;" />
-				<p:inputText id="cep" onblur="pesquisacep(this.value)" />
+				<p:inputText id="cep" onblur="pesquisacep(this.value)" 
+				value="#{cadastroMB.edit.cep}"/>
 
 				<h:outputText value="Endereço: " style="margin-right: 5px;" />
 				<p:inputText id="logradouro" value="#{cadastroMB.edit.logradouro}" />
@@ -54,18 +55,16 @@
 				<p:inputText id="cidade" value="#{cadastroMB.edit.cidade}" />
 
 
+			</h:panelGrid>
+
+
 				<f:facet name="footer">
 					<p:outputPanel layout="block" style="text-align:center" />
 					<p:commandButton value="Confirmar" icon="ui-icon-check"
 						update=":msgs form" actionListener="#{cadastroMB.onSave()}" />
 					<p:commandButton value="Cancelar" icon="ui-icon-close"
 						oncomplete="PF('insertdlg').hide()" />
-
-
-
 				</f:facet>
-
-			</h:panelGrid>
 
 		</p:dialog>
 

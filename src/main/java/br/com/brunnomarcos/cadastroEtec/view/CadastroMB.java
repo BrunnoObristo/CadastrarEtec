@@ -22,8 +22,12 @@ public class CadastroMB extends BaseMB {
 	private Etec edit = new Etec();
 	
 	public void onSave() {
-		cadastroSB.save(edit);
-		showInsertMessage();
+		try {
+			cadastroSB.save(edit);
+			showInsertMessage();
+		} catch (Exception e) {
+			showErrorMessage(e.getMessage());
+		}
 	}
 	
 }

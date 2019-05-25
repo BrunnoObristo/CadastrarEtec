@@ -6,13 +6,9 @@ import br.com.etechoracio.common.dao.BaseDAO;
 public interface CadastroDAO extends BaseDAO<Etec> {
 
 	
-	public void alter(Etec e) {
+	public Etec findByNomeOrCodigo(String nome, int codigo);
 		
-	
-	Etec findByNomeAndCodigo(
-			Etec etec = dao.findByNomeAndCodigo
-				
-	}		
 			
 }
+
 

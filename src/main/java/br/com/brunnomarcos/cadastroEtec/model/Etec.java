@@ -38,5 +38,10 @@ public class Etec extends BaseORM{
 	
 	@Column(name="CEP")
 	private String cep;
+
+	@Column(name="LATITUDE")
+	private Double Latitude;
 	
+	@Column(name="LONGITUDE")
+	private Double Longitude;
 }

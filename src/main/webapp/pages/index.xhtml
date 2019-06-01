@@ -69,6 +69,50 @@
 		</p:dialog>
 
 	</h:form>
+	
+	<p:panel header="Registros" id="pnlResultado"
+			style="width:98%; border:0">
+							 
+
+			<p:dataTable id="tblRegistros" var="etec" value="#{cadastroMB.registros}"
+				emptyMessage="Nenhum registro encontrado" reflow="true"
+				paginator="true" rows="10" rowsPerPageTemplate="5,10,15"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink}
+							 					{PreviousPageLink}  {PageLinks}
+							 					{NextPageLink}	{LastPageLink}
+							 					{RowsPerPageDropdown}">
+
+				<p:column headerText="Nome ETEC" style="white-space: pre-wrap">
+					<h:outputText value="#{etec.nome}" />
+				</p:column>
+				<p:column headerText="Código ETEC" style="white-space: pre-wrap">
+					<h:outputText value="#{etec.codigo}" />
+				</p:column>
+				<p:column headerText="Endereço" style="white-space: pre-wrap">
+					<h:outputText value="#{etec.logradouro}" />
+				</p:column>
+				<p:column headerText="Bairro" style="white-space: pre-wrap">
+					<h:outputText value="#{etec.bairro}" />
+				</p:column>
+				<p:column headerText="Cidade" style="white-space: pre-wrap">
+					<h:outputText value="#{etec.cidade}" />
+				</p:column>
+
+				<p:column style="text-align:center;">
+					<p:commandButton icon="ui-icon-trash" title="Excluir"
+									 id="btnExcluir"
+									 actionListener="#{cadastroMB.onRemove(etec)}"
+									 update="tblRegistros"/>
+					<p:commandButton icon="ui-icon-pencil" title="Alterar"
+									 actionListener="#{cadastroMB.onUpdate(etec)}" 
+									 update="tblRegistros"
+									 process="tblRegistros"
+									 onClick="PF('insertdlg').show()"/>
+				</p:column>
+
+			</p:dataTable>
+
+		</p:panel>
 
 	<script type="text/javascript">
 		function limpa_formulário_cep() {
